@@ -7,6 +7,7 @@ model = glm(voted ~ gender + cd + hd + age + party
             + cath+ evang + nonchrst + otherchrst
             + days.since.reg, family=binomial, 
             data = mytrain)
+
 loss = function(act, pred){
   er = act * log(pred) + (1-act)*(log(1-pred))
   ll = -1 * mean(er)
@@ -33,7 +34,7 @@ convertedtest = na.convert.mean(test)
 convertedtrain = na.convert.mean(train)
 model1 = glm(voted ~ gender + cd + hd + age + party 
             + racename + hsonly + mrrg + chldprsnt 
-            + cath+ evang + nonchrst + otherchrst
+            + cath + otherchrst
             + dbdistance + vccdistance + dbdistance.na
             + days.since.reg, family=binomial, 
             data = convertedtrain)
